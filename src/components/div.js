@@ -11,7 +11,8 @@ const Half = glamorous(Base)({
 });
 
 const Fourths = glamorous(Base)({}, props => ({
-	width: `calc(${props.size * 25}% - 10px)`
+	width: `calc(${props.size * 25}% - 10px)`,
+	'@media screen and (max-width: 40em)': {width: '100%'}
 }));
 
 export {

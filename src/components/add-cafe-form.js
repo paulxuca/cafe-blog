@@ -1,64 +1,75 @@
 import {Component} from 'react';
+import formSchema from '../constants/add-cafe-form';
 import InputField from './input-field';
 import CheckBox from './check-box';
 import {Full, Half, Fourths} from './div';
+import Form from './form';
 
 export default class AddCafeForm extends Component {
 	render() {
 		return (
 			<Full>
-				<form>
+				<Form schema={formSchema} {...this.props}>
 					<Half>
 						<InputField
-							model="form.name"
+							model="name"
 							placeholder="Special Cafe"
 							label="Name"
 							/>
 					</Half>
 					<Half>
 						<InputField
-							model="form.address"
+							model="address"
 							placeholder="123 Cafe Street"
 							label="Address"
 							/>
 					</Half>
 					<Half>
 						<InputField
-							model="form.phoneNumber"
+							model="phoneNumber"
 							placeholder="1231231234"
 							label="Phone number"
 							/>
 					</Half>
 					<Half>
 						<InputField
-							model="form.website"
+							model="website"
 							placeholder="https://cafe.com"
 							label="Website"
 							/>
 					</Half>
 					<Full>
 						<InputField
-							model="form.hours"
+							model="hours"
 							placeholder="Monday - Friday: 7am - 12pm, SA: 8am - 11pm, ..."
 							label="Hours"
 							/>
 					</Full>
-					<Full>
+					<Fourths size={2}>
 						<Fourths size={1}>
 							<CheckBox
 								label="Wifi?"
-								model="form.wifi.has"
+								model="wifi.has"
 								/>
 						</Fourths>
 						<Fourths size={3}>
-							<InputField
-								model="form.wifi.password"
-								placeholder="Monday - Friday: 7am - 12pm, SA: 8am - 11pm, ..."
-								label="Hours"
-								/>
+							<Half>
+								<InputField
+									model="wifi.ssid"
+									placeholder="Cafe Wifi 123"
+									label="SSID"
+									/>
+							</Half>
+							<Half>
+								<InputField
+									model="wifi.password"
+									placeholder="Secret password 123"
+									label="Password"
+									/>
+							</Half>
 						</Fourths>
-					</Full>
-				</form>
+					</Fourths>
+				</Form>
 			</Full>
 		);
 	}

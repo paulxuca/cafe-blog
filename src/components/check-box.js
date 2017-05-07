@@ -1,10 +1,10 @@
-import {Control} from 'react-redux-form';
 import {Full} from './div';
 import {SmallTitle} from './title';
+import Input from './input';
 
 export default ({label, ...props}) => (
 	<Full>
 		<SmallTitle>{label}</SmallTitle>
-		<Control type="checkbox" {...props}/>
+		<Input type="checkbox" {...props}/>
 	</Full>
 );

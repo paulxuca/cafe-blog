@@ -6,7 +6,7 @@ import {Text} from '../components/content';
 import Map from '../containers/add-cafe-map';
 import GetUserLocation from '../containers/get-user-location';
 import {AddCafePageContainer as MapContainer} from '../../src/components/map-container';
-import AddCafeForm from '../components/add-cafe-form';
+import AddCafeForm from '../containers/add-cafe-form';
 
 export default class AddCafePage extends Component {
 	render() {

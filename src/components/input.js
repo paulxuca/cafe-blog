@@ -1,23 +1,41 @@
-import glamorous from 'glamorous';
-import {Control} from 'react-redux-form';
+import {Component} from 'react';
+import autoBind from 'auto-bind';
+import PropTypes from 'prop-types';
+import omit from 'lodash/omit';
 
-const BasicInput = glamorous.input({
-	padding: '5px 10px',
-	fontFamily: 'Inconsolata, monospace',
-	fontSize: 15,
-	outline: 0,
-	border: 0,
-	borderBottom: '1px solid #b9b9b9',
-	width: 'calc(100% - 20px)',
-	transition: 'all 0.3s ease',
-	':active': {borderColor: '#000'},
-	':focus': {borderColor: '#000'}
-});
+const omitted = ['model'];
 
-const BasicControlledInput = props => <Control component={BasicInput} {...props}/>;
+export default class Input extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {value: props.defaultValue || ''};
 
-export {
-	BasicInput,
-	BasicControlledInput
+		autoBind(this);
+	}
+
+	handleChange(e) {
+		const {target: {value}} = e;
+		const {model} = this.props;
+		this.setState({value});
+
+		this.context.onChange(model, value);
+	}
+
+	render() {
+		const props = {
+			onChange: this.handleChange,
+			value: this.state.value,
+			...omit(this.props, omitted)
+		};
+
+		return <input {...props}/>;
+	}
+}
+
+Input.contextTypes = {
+	onChange: PropTypes.any,
+	getValue: PropTypes.any
 };
+
+
 

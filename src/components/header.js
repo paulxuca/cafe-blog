@@ -6,7 +6,8 @@ const Container = glamorous.header({
 	justifyContent: 'space-between',
 	position: 'fixed',
 	background: '#fff',
-	width: 'calc(100% - 40px)'
+	width: 'calc(100% - 40px)',
+	zIndex: 2
 });
 
 const Mark = glamorous.span({
