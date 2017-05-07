@@ -27,6 +27,7 @@ export default class EnhancedDocument extends Document {
 			<html>
 				<Head>
 					<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet"/>
+					<meta name="viewport" content="width=device-width, initial-scale=1"/>
 					<style dangerouslySetInnerHTML={{__html: this.props.css}}/>
 				</Head>
 				<Body>
