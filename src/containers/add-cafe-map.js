@@ -1,9 +1,14 @@
 import {connect} from 'react-redux';
 import Map from '../components/map';
+import {moveMapMarker} from '../actions/marker';
 
 const mapStateToProps = state => ({
-	lat: state.location.latitude,
-	lng: state.location.longitude
+	lat: state.location.lat,
+	lng: state.location.lng
 });
 
-export default connect(mapStateToProps)(Map);
+const mapDispatchToProps = {
+	onClick: moveMapMarker
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map);

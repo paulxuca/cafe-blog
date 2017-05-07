@@ -14,7 +14,8 @@ function * handleRequestUserLocation() {
 	const position = yield call(getUserLocation);
 
 	if (position) {
-		yield put({type: RECEIVE_USER_LOCATION, position});
+		const {latitude: lat, longitude: lng} = position;
+		yield put({type: RECEIVE_USER_LOCATION, position: {lat, lng}});
 		return;
 	}
 

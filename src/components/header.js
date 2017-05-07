@@ -3,7 +3,10 @@ import glamorous from 'glamorous';
 const Container = glamorous.header({
 	padding: 20,
 	display: 'flex',
-	justifyContent: 'space-between'
+	justifyContent: 'space-between',
+	position: 'fixed',
+	background: '#fff',
+	width: 'calc(100% - 40px)'
 });
 
 const Mark = glamorous.span({

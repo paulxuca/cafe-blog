@@ -6,6 +6,7 @@ import {Text} from '../components/content';
 import Map from '../containers/add-cafe-map';
 import GetUserLocation from '../containers/get-user-location';
 import {AddCafePageContainer as MapContainer} from '../../src/components/map-container';
+import AddCafeForm from '../components/add-cafe-form';
 
 export default class AddCafePage extends Component {
 	render() {
@@ -19,8 +20,12 @@ export default class AddCafePage extends Component {
 						</PageContainer>
 
 						<MapContainer>
-							<Map/>
+							<Map onClick={this.handleClickMap}/>
 						</MapContainer>
+
+						<PageContainer>
+							<AddCafeForm/>
+						</PageContainer>
 					</div>
 				</GetUserLocation>
 			</Layout>
