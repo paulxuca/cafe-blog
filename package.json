@@ -35,7 +35,8 @@
         "rules": {
             "react/react-in-jsx-scope": 0,
             "react/prop-types": 0,
-            "react/forbid-component-props": 0
+            "react/forbid-component-props": 0,
+            "react/jsx-handler-names": 0
         },
         "envs": [
             "browser",

@@ -3,7 +3,7 @@ import autoBind from 'auto-bind';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 
-const omitted = ['model'];
+const omitted = ['model', 'changeValue'];
 
 export default class Input extends Component {
 	constructor(props) {
@@ -14,8 +14,10 @@ export default class Input extends Component {
 	}
 
 	handleChange(e) {
-		const {target: {value}} = e;
-		const {model} = this.props;
+		const {model, changeValue} = this.props;
+		const {target} = e;
+		const value = target[changeValue];
+
 		this.setState({value});
 
 		this.context.onChange(model, value);
@@ -30,6 +32,10 @@ export default class Input extends Component {
 
 		return <input {...props}/>;
 	}
+}
+
+Input.defaultProps = {
+	changeValue: 'value'
 }
 
 Input.contextTypes = {

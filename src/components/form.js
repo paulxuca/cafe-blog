@@ -20,6 +20,10 @@ export default class Form extends Component {
 	handleChange(path, value) {
 		const nextState = set(this.props.value, path, value);
 		this.props.onChange(nextState);
+
+		if (this.props.subscribeTo.indexOf(path) >= 0) {
+			this.props.onSubscribeChange(path, value);
+		}
 	}
 
 	getValue(path) {
