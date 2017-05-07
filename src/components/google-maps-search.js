@@ -35,6 +35,10 @@ export default class GoogleMapsSearch extends Component {
 		clearInterval(this.loop);
 
 		this.googleInput = new google.maps.places.SearchBox(this.inputRef);
+		this.googleInput.addListener('places_changed', this.handleChange);
+	}
+
+	handleChange() {
 	}
 
 	handleInputRef(ref) {

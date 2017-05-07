@@ -32,16 +32,16 @@ export default class AddCafeForm extends Component {
 					>
 					<Half>
 						<GoogleMapsSearch
-							model="name"
-							placeholder="Special Cafe"
-							label="Name"
+							model="address"
+							placeholder="123 Cafe Street"
+							label="Address"
 							/>
 					</Half>
 					<Half>
 						<InputField
-							model="address"
-							placeholder="123 Cafe Street"
-							label="Address"
+							model="name"
+							placeholder="Special Cafe"
+							label="Name"
 							/>
 					</Half>
 					<Half>
