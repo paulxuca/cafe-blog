@@ -15,8 +15,11 @@ const Fourths = glamorous(Base)({}, props => ({
 	'@media screen and (max-width: 40em)': {width: '100%'}
 }));
 
+const Styled = ({component: Component, style, ...props}) => <Component style={style} {...props}/>;
+
 export {
 	Full,
 	Half,
-	Fourths
+	Fourths,
+	Styled
 };

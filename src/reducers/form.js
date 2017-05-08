@@ -4,7 +4,7 @@ export default schema => (state = schema, action) => {
 	switch (action.type) {
 		case SET_FORM_VALUE:
 			return {
-				state,
+				...state,
 				...action.value
 			};
 

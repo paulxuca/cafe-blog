@@ -31,7 +31,7 @@ export default class Map extends Component {
 	componentWillReceiveProps(newProps) {
 		const {lat, lng} = newProps;
 
-		if ((!this.props.lat && !this.props.lng) && (lat && lng)) {
+		if (lat && lng) {
 			this.panMap({lat, lng});
 		}
 	}

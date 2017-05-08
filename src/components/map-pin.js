@@ -21,6 +21,6 @@ export default class MapPin extends Component {
 	}
 
 	render() {
-		return <div/>;
+		return null;
 	}
 }

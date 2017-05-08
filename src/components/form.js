@@ -39,9 +39,18 @@ export default class Form extends Component {
 	}
 }
 
-
 Form.childContextTypes = {
 	onChange: PropTypes.func,
 	getValue: PropTypes.func
+};
+
+Form.defaultProps = {
+	subscribeTo: [],
+	onSubscribeChange() {}
+};
+
+Form.propTypes = {
+	subscribeTo: PropTypes.array,
+	onSubscribeChange: PropTypes.func
 };
 

@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import omit from 'lodash/omit';
 import autoBind from 'auto-bind';
 import formSchema from '../constants/add-cafe-form';
 import InputField from './input-field';
@@ -28,13 +29,14 @@ export default class AddCafeForm extends Component {
 					subscribeTo={['wifi.has']}
 					schema={formSchema}
 					onSubscribeChange={this.handleSubscribeChange}
-					{...this.props}
+					{...omit(this.props, ['onGoogleResult'])}
 					>
 					<Half>
 						<GoogleMapsSearch
 							model="address"
 							placeholder="123 Cafe Street"
 							label="Address"
+							onChange={this.props.onGoogleResult}
 							/>
 					</Half>
 					<Half>

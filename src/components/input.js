@@ -13,6 +13,22 @@ export default class Input extends Component {
 		autoBind(this);
 	}
 
+	componentWillMount() {
+		this.applyChanges();
+	}
+
+	componentWillUpdate() {
+		this.applyChanges();
+	}
+
+	applyChanges() {
+		const nextValue = this.context.getValue(this.props.model);
+
+		if (nextValue !== this.state.value) {
+			this.setState({value: nextValue});
+		}
+	}
+
 	handleChange(e) {
 		const {model, changeValue} = this.props;
 		const {target} = e;
@@ -36,7 +52,7 @@ export default class Input extends Component {
 
 Input.defaultProps = {
 	changeValue: 'value'
-}
+};
 
 Input.contextTypes = {
 	onChange: PropTypes.any,

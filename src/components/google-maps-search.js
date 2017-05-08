@@ -2,6 +2,7 @@
 
 import {Component} from 'react';
 import {findDOMNode} from 'react-dom';
+import omit from 'lodash/omit';
 import autoBind from 'auto-bind';
 import loadGoogleMapsScript from '../lib/load-google-maps-script';
 import InputField from './input-field';
@@ -39,6 +40,7 @@ export default class GoogleMapsSearch extends Component {
 	}
 
 	handleChange() {
+		this.props.onChange(this.googleInput.getPlaces()[0]);
 	}
 
 	handleInputRef(ref) {
@@ -47,7 +49,7 @@ export default class GoogleMapsSearch extends Component {
 
 	render() {
 		return (
-			<InputField innerRef={this.handleInputRef} {...this.props}/>
+			<InputField innerRef={this.handleInputRef} {...omit(this.props, ['onChange'])}/>
 		);
 	}
 }
